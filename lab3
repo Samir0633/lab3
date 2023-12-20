@@ -1,0 +1,19 @@
+import numpy as np
+
+def pozitiv_ortadiagonal(matris):
+    sutun_ortasi = np.mean(matris[matris > 0], axis=0)
+    
+    np.fill_diagonal(matris, sutun_ortasi)
+    
+    return matris
+
+n = int(input("Matrisin ölçüsünü daxil edin: "))
+
+matris = np.random.randint(-10, 10, size=(n, n))
+
+result_matris = pozitiv_ortadiagonal(matris)
+
+print("Əvvəlki matris:")
+print(matris)
+print("\nNəticə matrisi:")
+print(result_matris)
